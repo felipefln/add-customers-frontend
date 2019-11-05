@@ -30,7 +30,7 @@ const Login = ({ history }) => {
                 
                     <Paper className={classes.paper}>
                         <img src={logoMenor} alt="logo-menor" style={{ width: '20vh'}} />
-                        <Typography variant="h3" component="div" style={{ height: '60vh', width: '100vh', paddingTop: '5vh'}}>
+                        <Typography variant="h4" component="div" style={{ height: '60vh', width: '100vh', paddingTop: '5vh'}}>
                         Hello, let's use the <strong>"Add Customer Tool"</strong>
 
                             <form onSubmit={handleSubmit} style={{ width: '48vh', paddingTop: '5vh' }}>
