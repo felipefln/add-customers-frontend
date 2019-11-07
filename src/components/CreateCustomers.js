@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import api from '../services/api'
-import { Paper, Typography, Input } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add';
+import { Input } from '@material-ui/core';
 
 
 
@@ -31,15 +31,16 @@ const CreateCustomer = ({ history }) => {
     }
     
     return (
-        <Paper className="formCreate">
-            <Typography variant="h1" component="div"  style={{width: '100vh', paddingTop: '5vh'}}>
+        <div className="formCreate">
+            <div variant="h1" component="div"  style={{width: '100vh', paddingTop: '5vh'}}>
                 <div className="titleCreate" >
                     <p align="center">Please, add customers or client preference:</p>
                 </div>
                 
                 <form onSubmit={create} className="inputForm">
                     <Input
-                        required
+                       required
+                        style={{paddingTop: '5vh', color: 'white'}}
                         onChange={event => setName(event.target.value)}
                         placeholder="Name"
                         value={name}
@@ -49,6 +50,7 @@ const CreateCustomer = ({ history }) => {
                     />
                     <Input
                         required
+                        style={{paddingTop: '5vh', color: 'white'}}
                         placeholder="E-mail"
                         value={email}
                         onChange={event => setEmail(event.target.value)}
@@ -58,6 +60,7 @@ const CreateCustomer = ({ history }) => {
                     />
                     <Input
                         required
+                        style={{paddingTop: '5vh', color: 'white'}}
                         placeholder="CPF"
                         value={cpf}
                         onChange={event => setCPF(event.target.value)}
@@ -67,6 +70,7 @@ const CreateCustomer = ({ history }) => {
                     />
                     <Input
                         required
+                        style={{paddingTop: '5vh', color: 'white'}}
                         placeholder="Phone"
                         value={phone}
                         onChange={event => setPhone(event.target.value)}
@@ -82,8 +86,8 @@ const CreateCustomer = ({ history }) => {
                     </div>
                 </form>
                 
-            </Typography>
-        </Paper>
+            </div>
+        </div>
     )
 } 
 

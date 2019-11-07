@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import { Alert } from 'reactstrap';
 
 import api from "../services/api";
 
@@ -37,13 +38,48 @@ const ListCustomers = ({ history }) => {
     
    
     return (
+      <div>
           <tr key={customer.id}>
             <td>{customer.name}</td>
             <td>{customer.email}</td>
             <td>{customer.cpf}</td>
             <td>{customer.phone}</td>
-            <td><button className="btn" onClick={() => removeCustomer(customer.id)}>Remove</button></td>
+            <td>
+              <Fab color="primary" aria-label="add" align="right" onClick={() => removeCustomer(customer.id)}>
+                  <AddIcon />
+              </Fab>
+            </td>
           </tr>
+      </div>
+    )
+  }
+
+  if(data.length > 0 ) {
+    return (
+        <table className="table">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>CPF</th>
+              <th>Phone</th>
+            </tr>
+            {data.map(d => renderCustomers(d))}
+          
+        </table>
+    )
+  }
+  if(data.length === 0) {
+    return (
+      <div className="containerAlert">
+        <Alert color="secondary">List customer none!</Alert>
+        
+          <Fab color="primary" aria-label="add" align="right" onClick={() => redirectCreate()}>
+            <AddIcon />
+          </Fab>
+        
+        
+      </div>
+
     )
   }
 
@@ -59,18 +95,7 @@ const ListCustomers = ({ history }) => {
                 <AddIcon />
             </Fab>
         </div>
-        
-        <table className="table">
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>CPF</th>
-            <th>Phone</th>
-          </tr>
-          {data ? data.map(d => renderCustomers(d)) : false}
-          
-        </table>
-     
+       
     </div>
   );
 };

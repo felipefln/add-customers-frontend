@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Container, Typography, Input, makeStyles, Paper } from '@material-ui/core'
-import logoMenor from '../assets/logoMenor.png'
+import { Container, Input, makeStyles } from '@material-ui/core'
+import logoEdit from '../assets/logoEdit.png'
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -15,7 +15,6 @@ const useStyles = makeStyles(theme => ({
 
 
 const Login = ({ history }) => {
-    const classes = useStyles();
     const [name, setName] = useState('')
     const [email, setEmail ] = useState('')
     
@@ -28,15 +27,16 @@ const Login = ({ history }) => {
         <React.Fragment>
             <Container maxWidth="lg">
                 
-                    <Paper className={classes.paper}>
-                        <img src={logoMenor} alt="logo-menor" style={{ width: '20vh'}} />
-                        <Typography variant="h4" component="div" style={{ height: '60vh', width: '100vh', paddingTop: '5vh'}}>
+                    <div className="container">
+                        <img src={logoEdit} alt="logo-menor" style={{ width: '20vh'}} />
+                        <div className="containerForm">
                         Hello, let's use the <strong>"Add Customer Tool"</strong>
 
-                            <form onSubmit={handleSubmit} style={{ width: '48vh', paddingTop: '5vh' }}>
+                            <form onSubmit={handleSubmit} style={{ width: '48vh', paddingTop: '3vh' }}>
                                 <Input 
                                     required
                                     fullWidth
+                                    style={{paddingTop: '5vh', color: 'white'}}
                                     type="name" 
                                     id="name" 
                                     placeholder="Name"
@@ -47,7 +47,7 @@ const Login = ({ history }) => {
                                 <Input
                                     required 
                                     fullWidth
-                                    style={{paddingTop: '5vh'}}
+                                    style={{paddingTop: '5vh', color: 'white'}}
                                     type="email" 
                                     id="email" 
                                     placeholder="E-mail"
@@ -58,8 +58,8 @@ const Login = ({ history }) => {
                                     <button className="btn" type="submit">Enter</button>
                                 </div>
                             </form>
-                        </Typography>
-                    </Paper>
+                        </div>
+                    </div>
                     
                 
             </Container>
